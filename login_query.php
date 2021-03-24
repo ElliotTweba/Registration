@@ -13,7 +13,7 @@
 			$row = $query->rowCount();
 			$fetch = $query->fetch();
 			if($row > 0) {
-				$_SESSION['user'] = $fetch['mem_id'];
+				$_SESSION['name'] = $fetch['name'];
 				header("location: viewUsers.php");
 			} else{
 				echo "

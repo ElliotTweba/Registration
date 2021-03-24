@@ -1,5 +1,18 @@
 <?php
-	require_once 'conn.php';
+require_once 'conn.php';
+session_start();  
+ if(isset($_SESSION["name"]))  
+ {  
+      echo '<h3>Login Success, Welcome - '.$_SESSION["name"].'</h3>';  
+      
+ }  
+ else  
+ {    
+     echo "
+     <script>alert('Logged Out  !')</script>
+     <script>window.location = 'index.php'</script>
+     "; 
+ } 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +36,7 @@
 	<div class="col-md-3"></div>
 	<div class="col-md-8 well">
 		<h3 class="text-primary">User List</h3>
-        <a href="userForm.php" style="color:red; float:right; margin-bottom: 25px;">AddUser</a>
+        <h4><a href="userForm.php" style="color:red; float:right; margin-bottom: 25px;">AddUser</a></h4>
 		<hr style="border-top:1px dotted #ccc;"/>
 		<div class="col-md-2"></div>
         <div class="table100 ver2 m-b-110">
@@ -75,16 +88,12 @@
                 </table>
             </div>
         </div>
-        <a href="logout.php">Logout</a>
+        <h4><a href="logout.php">Logout</a></h4>
     </div>
-    <!--===============================================================================================-->	
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
-<!--===============================================================================================-->
 	<script src="vendor/bootstrap/js/popper.js"></script>
 	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-<!--===============================================================================================-->
 	<script src="vendor/select2/select2.min.js"></script>
-<!--===============================================================================================-->
 	<script src="vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
 	<script>
 		$('.js-pscroll').each(function(){
